@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main class="main-content">
+        <h1>Calculadora de salário</h1>
+
+        <label for="salarioBruto"> Salário Bruto:</label>
+        <input type="number" id="salarioBruto" placeholder=" Digite o salário Bruto"><br>
+
+        <label for="vt"> Vale Transporte (%):</label>
+        <input type="number" id="vt" placeholder=" Digite a porcentagem do VT"><br>
+
+        <button onclick="calcularDesconto()"> Calcular Descontos </button><br>
+
+        <h2>Salário Bruto: <span id="salarioBrutoResultado"></span></h2>
+        <h2> Vale Transporte: <span id="vtResultado"></span></h2>
+        <h2> Desconto INSS: <span id="inssResultado"></span></h2>
+        <h2> Desconto de Imposto de Renda: <span id="irResultado"></span></h2>
+        <h2> Salário Líquido:<span id="salarioLiquido"></span></h2>
+    </main>
+    <footer>
+        &copy; 2023 Cálculo Rápido. Todos os direitos reservados. Desenvolvido por <a href="#" jojo></a>
+    </footer>
+
+
+    <script>
+
+        function calcularDesconto() {
+            const salarioBruto = parseFloat(document.getElementById("salarioBruto").value);
+            const vtPorcentagem = parseFloat(document.getElementById("vt").value);
+
+            if (!isNaN(salarioBruto)) {
+                document.getElementById("salarioBrutoResultado").textContent = "R$" + salarioBruto.toFixed(2);
+
+                //Calcular Vale Transporte (VT) e desconto do INSS
+                const vt = (vtPorcentagem / 100) * salarioBruto;
+                document.getElementById("vtResultado").textContent = "R$" + vt.toFixed(2);
+
+                let inss;
+                if (salarioBruto <= 1693.72) {
+                    inss = 0.08 * salarioBruto;
+                }
+                else if (salarioBruto <= 2822.90) {
+                    inss = 0.09 * salarioBruto;
+                }
+                else {
+                    inss = 0.11 * salarioBruto;
+                }
+                document.getElementById("inssResultado").textContent = "R$" + inss.toFixed(2);
+
+                //Calcular Imposto  de Renda (IR)
+                let ir;
+                if (salarioBruto <= 2826.65) {
+                    ir = 0;
+                } else if (salarioBruto <= 3751.65) {
+                    ir = 0.15 * (salarioBruto - 2826.65);
+                } else {
+                    ir = 0.275 * (salarioBruto - 3751.05) + 354.80;
+                }
+                document.getElementById("irResultado").textContent = "R$" + ir.toFixed(2);
+
+                //calcular salário líquido
+                const salarioLiquido = salarioBruto - vt - inss - ir;
+                document.getElementById("salarioLiquido").textContent = "R$" + salarioLiquido.toFixed(2);
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

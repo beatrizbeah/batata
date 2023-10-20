@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content=""width=device-width, iniitial-scale="1.0">
+        <title>Operadores Aritméticos</title>
+    </head>
+    <body>
+        <h1>Calculadora Simples</h1>
+<p>Inspiraa dois números e clique em "Calcular".</p>
+
+        <label for="numero1"> Número 1:</label>
+        <input type="text" id="numero1">
+
+        <label for="numero2"> Número2:</label>
+        <input type="text" id="numero2">
+
+        <button onclick="calcular()">Calcular</button>
+
+        <h2> Resultado:</h2>
+        <p id="soma">Soma:</p>
+        <p id="subtraçao">Subtração</p>
+        <p id="multiplicacao">Multiplicação</p>
+        <p id="divisao">Divisão</p>
+
+        <script>
+            function calcular(){
+
+                const numero1=
+                persefloat(document.getElementById("numero1").value);
+                const numero2=
+                persefloat(document.getElementById("numero2").value);
+
+                const resultadoSoma= numero1 + numero2;
+                const resultadoSubtraçao=numero1 - numero2;
+                const resultadoMultipliçaao=numero1 * numero2;
+                const resultadoDivisao=numero1 / numero2;
+
+                document.getElementById("soma").textContent=`soma:${resultadodaSoma}`;
+                document.getElementById("subtraçao").textContent=`subtração:${resultadoSubtraçao}`;
+                document.getElementById("multiplicaçao").textContent=`Multiplicação: ${resultadoMultiplicaçao}`;
+                document.getElementById("divisao").textContent=`Divisão:${resultadoDivisao}`;}
+            
+        </script>
+    </body>
+</html>

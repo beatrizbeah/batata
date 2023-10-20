@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Operadores Relacionais e estrutura de Controle</title>
+    </head>
+    <body>
+        <h1> Verificação de Idade</h1>
+        <label for="idade"> Digite sua Idade:</label>
+        <input type="number" id="idade" placeholder="Informe sua Idade">
+        <button onclick="verificarIdade()">Verificar</button>
+        <p id="resultado"></p>
+
+        <script>
+            function verificarIdade(){
+                const idade= document.getElementById("idade").value;
+
+                if (idade>=18){
+                    document.getElementById("resultado").textContent="Você é maior idade!"
+
+                } else{
+                    documen.getElementById("resultado").textContent="Você é menor de idade.";
+                }
+            }
+        </script>
+    </body>
+</html>

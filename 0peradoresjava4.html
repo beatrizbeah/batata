@@ -1,0 +1,26 @@
+<!DOCTYPE html>>
+<html>
+    <head>
+        <title>bVerificar número par e maior que 10</title>
+    </head>
+    <body>
+
+        <label for="numero">Digite um número:</label>
+        <input type ="number" id="numero">
+        <button onclick="verificarNumero()">Verificar</button>
+        <p id="resultado"></p>
+
+        <script>
+            function verificarNumero(){
+                const numero=
+    parseInt(document.getElementById("numero").value);
+
+    if (numero % 2 === 0 && numero > 10) {
+        document.getElementById ("resultado").textContent="O número é par e maior que 10!";
+    } else{
+        document.getElementById("resultado").textContent= "o número não atende ás condições.";
+    }
+            }
+        </script>
+    </body>
+</html>

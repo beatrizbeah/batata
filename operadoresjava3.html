@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Operadores lógicos</title>
+    </head>
+    <body>
+        <h1> Verificação de aluguel de Carro</h1>
+        <label for="possuiCarteira"> Você possui carteira de motorista? (sim/não):</label>
+        <input type="text" id="possuiCarteira" placeholder="Digite sim ou não">
+        
+        <br>
+        <label for="maisDe18"> Você tem mais de 18  anos? (sim/não)</label>
+        <input type="text" id="maisDe18" placeholder="digite sim ou não">
+        <button onclick="verificarAluguelCarro()">Verificar</button>
+        <p id="resultado"></p>
+
+        <script>
+            function verificarAluguelCarro() {
+                const possuiCarteira=
+                document.getElementById("possuiCarteira").value.toLoweCase();
+                const maisDe18=
+                document.getElementById("maisDe18").value.toLowerCase();
+
+                if (possuiCarteira ==="sim" && maisDe18 === "sim") {
+                    document.getElementById ("resultado").textContent = "Você pode alugar um Carro!";
+                } else {
+                    document.getElementById("resutado").textContent="Desculpe,você não pode alugar um carro.";
+                }
+
+            }
+        </script>
+
+    </body>
+</html>
